@@ -1,0 +1,54 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-menu [content]="mycontent">
+
+  <ion-content>
+    <ion-item class='profile-section'  >
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar.jpg">
+      </ion-avatar>
+      <h2>{{yo.nombreCorto}}</h2>
+      <p>{{yo.correo}}</p>
+    </ion-item>
+    <ion-list>
+      <button ion-item menuClose icon-left (click)="openPage(0)">
+        <ion-icon name="albums"></ion-icon>
+        <b>INICIO</b>
+      </button>
+      <button ion-item menuClose icon-left (click)="openPage(1)">
+        <ion-icon name="add"></ion-icon>
+        <b> CREAR EQUIPO</b>
+      </button>
+      <button ion-item menuClose icon-left (click)="openPage(2)">
+        <ion-icon name="search"></ion-icon>
+        <b>BUSCAR EQUIPOS</b>
+      </button>
+      <button ion-item menuClose icon-left (click)="openPage(3)">
+          <ion-icon name="football"></ion-icon>
+          <b>MIS PARTIDOS</b>
+        </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!--<button ion-button icon-only>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+
+<ion-header>
+  <ion-toolbar no-border-top>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <b><ion-title>{{title}}</ion-title></b>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-nav #mycontent [root]="rootPage"></ion-nav>
+</ion-content>
