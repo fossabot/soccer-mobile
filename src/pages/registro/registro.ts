@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HummerProvider } from '../../providers/hummer/hummer';
 import { BifrostProvider } from '../../providers/bifrost/bifrost';
 import { HandlerProvider } from '../../providers/handler/handler';
 import { HomePage } from '../home/home';
@@ -24,7 +23,6 @@ export class RegistroPage {
 
   form: FormGroup;
   constructor(
-    public hummer: HummerProvider,
     public bifrost: BifrostProvider,
     public handler: HandlerProvider,
     public formBuilder: FormBuilder,
@@ -52,24 +50,20 @@ export class RegistroPage {
       correo: this.form.value.correo,
       contrasena: this.form.value.pass,
     }
-    this.hummer.loading(true);
     this.bifrost.add('jugador', body)
-      .then(response=> {
+      .then(response => {
         response ? this.successRegistro(response) : this.failRegistro(response);
       })
-      .catch(err=>this.handler.there(err));
+      .catch(err => this.handler.there(err));
   }
 
   private successRegistro(jugador: object) {
     localStorage.setItem('yo', JSON.stringify(jugador))
     this.handler.there('⚽ Registro satisfactorio')
-    setTimeout(() => {
-      this.hummer.loading(false);
-      this.navCtrl.push(MenuPage,jugador);
-    }, 1500);
+    this.navCtrl.push(MenuPage, jugador);
   }
 
-  failRegistro(err){
+  failRegistro(err) {
     console.log(err);
   }
 

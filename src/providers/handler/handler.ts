@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastProvider } from '../toast/toast'
-import { HummerProvider } from '../hummer/hummer';
+
 /*
   Generated class for the HandlerProvider provider.
 

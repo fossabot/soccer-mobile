@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HandlerProvider } from '../../providers/handler/handler';
 import { BifrostProvider } from '../../providers/bifrost/bifrost';
 import { HomePage } from '../home/home';
-import { HummerProvider } from '../../providers/hummer/hummer';
 import { RegistroPage } from '../registro/registro'
 import { MenuPage } from '../menu/menu';
 
@@ -24,7 +23,6 @@ export class LoginPage {
 
   form: FormGroup;
   constructor(
-    public hummer: HummerProvider,
     public bifrost: BifrostProvider,
     public handler: HandlerProvider,
     public formBuilder: FormBuilder,
@@ -41,38 +39,33 @@ export class LoginPage {
     if (!this.form.valid)
       return this.handler.there('Formulario invalido, verifica que sea un correo');
 
-    this.hummer.loading(true);
-
     let body = {
       correo: this.form.value.correo,
       contrasena: this.form.value.pass
     }
 
     this.bifrost.search('jugador', body)
-      .then(response =>
+      .then(response => {
+        console.log(response);
         !response.length ?
           this.failLogin() :
           this.successLogin(response[0])
-      )
+      })
       .catch((err) => this.handler.there(err));
   }
 
   private successLogin(jugador: object) {
     localStorage.setItem('yo', JSON.stringify(jugador))
     this.handler.there('⚽ Ingreso satisfactorio')
-    setTimeout(() => {
-      this.hummer.loading(false);
-      this.navCtrl.push(MenuPage,jugador);
-    }, 1500);
+    this.navCtrl.push(MenuPage, jugador);
   }
 
   private failLogin() {
-    this.hummer.loading(false);
     this.handler.there('🚨 Credenciales incorrectas');
   }
 
 
   public gotoCrearCuenta() {
-    this.navCtrl.push(RegistroPage,this.form.value);
+    this.navCtrl.push(RegistroPage, this.form.value);
   }
 }

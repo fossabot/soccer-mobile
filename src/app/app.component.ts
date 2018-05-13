@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login'
 import { MenuPage } from '../pages/menu/menu';
+import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,6 +22,7 @@ export class MyApp {
       splashScreen.hide();
 
       this.rootPage = localStorage.getItem('yo') ? MenuPage : LoginPage;
+      //this.rootPage = CrearEquipoPage;
     });
   }
 }

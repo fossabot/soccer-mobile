@@ -8,33 +8,29 @@
 <ion-menu [content]="mycontent">
 
   <ion-content>
-    <ion-item class='profile-section'  >
+    <ion-item class='profile-section'>
       <ion-avatar item-start>
         <img src="assets/imgs/avatar.jpg">
       </ion-avatar>
       <h2>{{yo.nombreCorto}}</h2>
       <p>{{yo.correo}}</p>
     </ion-item>
-    <ion-list>
-      <button ion-item menuClose icon-left (click)="openPage(0)">
-        <ion-icon name="albums"></ion-icon>
-        <b>INICIO</b>
+    <ion-list *ngFor="let menuItem of menu; let i = index">
+      <button ion-item menuClose icon-left (click)="openPage(i)">
+        <ion-icon name="{{menuItem.icon}}"></ion-icon>
+        <b>{{menuItem.title}}</b>
       </button>
-      <button ion-item menuClose icon-left (click)="openPage(1)">
-        <ion-icon name="add"></ion-icon>
-        <b> CREAR EQUIPO</b>
-      </button>
-      <button ion-item menuClose icon-left (click)="openPage(2)">
-        <ion-icon name="search"></ion-icon>
-        <b>BUSCAR EQUIPOS</b>
-      </button>
-      <button ion-item menuClose icon-left (click)="openPage(3)">
-          <ion-icon name="football"></ion-icon>
-          <b>MIS PARTIDOS</b>
-        </button>
     </ion-list>
   </ion-content>
-
+  <ion-footer no-border>
+    <ion-item>
+      <div item-start>
+        <img width="70px" src="assets/imgs/logo.jpeg">
+      </div>
+      <h2>Soccer League</h2>
+      <p>Versión 0.0.1 - beta</p>
+    </ion-item>
+  </ion-footer>
 </ion-menu>
 
 <!--<button ion-button icon-only>
@@ -42,11 +38,15 @@
   </button>-->
 
 <ion-header>
-  <ion-toolbar no-border-top>
+  <ion-toolbar no-border-top color='dark'>
     <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" color='white'></ion-icon>
     </button>
-    <b><ion-title>{{title}}</ion-title></b>
+    <b>
+      <ion-title color='white'>
+        <b>{{title}} </b>
+      </ion-title>
+    </b>
   </ion-toolbar>
 </ion-header>
 <ion-content>

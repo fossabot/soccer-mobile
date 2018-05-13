@@ -21,7 +21,7 @@ export class HummerProvider {
   loading(start: boolean) {
     if(start){
       this._load = this.loadingCtrl.create({
-        content: 'Please wait...',
+        content: 'Cargando...',
         spinner: 'dots'
       });
       this._load.present();

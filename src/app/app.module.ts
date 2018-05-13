@@ -15,6 +15,7 @@ import { BifrostProvider } from '../providers/bifrost/bifrost';
 import { HummerProvider } from '../providers/hummer/hummer';
 import { ChatPage } from '../pages/chat/chat';
 import { MenuPage } from '../pages/menu/menu';
+import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MenuPage } from '../pages/menu/menu';
     LoginPage,
     RegistroPage,
     ChatPage,
-    MenuPage
+    MenuPage,
+    CrearEquipoPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { MenuPage } from '../pages/menu/menu';
     LoginPage,
     RegistroPage,
     ChatPage,
-    MenuPage
+    MenuPage,
+    CrearEquipoPage
   ],
   providers: [
     StatusBar,
