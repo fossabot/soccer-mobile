@@ -13,6 +13,7 @@ import { PerfilJugadorPage } from '../perfil-jugador/perfil-jugador';
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
+ * x
  */
 
 type Yo = {
