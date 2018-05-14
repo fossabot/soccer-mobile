@@ -53,7 +53,7 @@ export class CrearEquipoPage {
       nombre: this.form.value.nombreEquipo,
       categoria: this.form.value.categoria,
       descripcion: this.form.value.descripcion,
-      foto:this.selectedEscudo,
+      foto:this.selectedEscudo.toString(),
       privado: this.form.value.privado
     };
 
