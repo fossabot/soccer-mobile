@@ -7,12 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login'
 import { MenuPage } from '../pages/menu/menu';
 import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
+import { MisEquiposPage } from '../pages/mis-equipos/mis-equipos';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any ;
+  rootPage: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -21,8 +22,8 @@ export class MyApp {
       statusBar.hide();
       splashScreen.hide();
 
-      this.rootPage = localStorage.getItem('yo') ? MenuPage : LoginPage;
-      //this.rootPage = CrearEquipoPage;
+      //this.rootPage = localStorage.getItem('yo') ? MenuPage : LoginPage;
+      this.rootPage = MisEquiposPage;
     });
   }
 }

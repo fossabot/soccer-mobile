@@ -16,7 +16,7 @@
 
           <ion-scroll scrollX="true" style='height: 150px'>
             <ion-row nowrap>
-              <ion-col col-5 style=" margin: 3px" *ngFor='let escudo of escudos; let i = index' (click)='selectEscudo(i)' no-padding>
+              <ion-col col-5 style=" margin: 3px" *ngFor='let escudo of escudos; let i = index' (click)='selectEscudo(escudo)' no-padding>
                 <img [ngClass]="{'escudo-selected': selectedEscudo === i}" width="110px" height="110px" [src]="escudo" />
                 <br>
               </ion-col>
@@ -67,5 +67,4 @@
       </ion-row>
     </ion-grid>
   </form>
-  <img class="footerImg" src="assets/imgs/footer.jpg" />
 </ion-content>

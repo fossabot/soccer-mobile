@@ -43,18 +43,22 @@ export class CrearEquipoPage {
     ];
 
   }
-  selectEscudo(index){
-    this.selectedEscudo = index;
+  selectEscudo(path){
+    this.selectedEscudo = path;
   }
   crearEquipo(){
     if(this.form.invalid)
       return this.handler.there('Formulario invalido verifica que todos los campos esten llenos');
+
+    let id = JSON.parse(localStorage.getItem('yo'))._id;
     let body = {
       nombre: this.form.value.nombreEquipo,
       categoria: this.form.value.categoria,
       descripcion: this.form.value.descripcion,
       foto:this.selectedEscudo.toString(),
-      privado: this.form.value.privado
+      privado: this.form.value.privado,
+      lider: id,
+      integrantes: [id]
     };
 
     this.bifrost.add('equipo',body)

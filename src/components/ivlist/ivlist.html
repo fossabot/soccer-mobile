@@ -1,0 +1,14 @@
+<!--<ion-refresher (ionRefresh)="load($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>-->
+<ion-list>
+  <ion-item *ngFor='let item of listData' (click)='linkEvent(item,$event)'>
+    <ion-thumbnail item-start>
+      <img src="{{item.img}}">
+    </ion-thumbnail>
+    <h2>{{item.title}}</h2>
+    <h3>{{item.subtitle}}</h3>
+    <p>{{ (item.desc.length>100)? (item.desc | slice:0:100)+'..':(item.desc) }} </p>
+
+  </ion-item>
+</ion-list>

@@ -31,13 +31,16 @@ body {
 
 .footerImg {
   position: fixed;
-  bottom: 1px;
-  left: 1px;
+  bottom: 0px;
+  left: 0px;
   z-index: -1;
 }
 
 .item-md {
   @include bgc;
+}
+.white-item {
+  background-color: white!important;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Skranji');

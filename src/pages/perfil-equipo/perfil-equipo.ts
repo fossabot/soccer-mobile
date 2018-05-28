@@ -15,11 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PerfilEquipoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  public equipo: Object;
+  public edit: boolean = false;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+    console.log(navParams.data);
+    this.equipo = this.navParams.data;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PerfilEquipoPage');
   }
 
 }

@@ -16,6 +16,10 @@ import { HummerProvider } from '../providers/hummer/hummer';
 import { ChatPage } from '../pages/chat/chat';
 import { MenuPage } from '../pages/menu/menu';
 import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
+import { MisEquiposPage } from '../pages/mis-equipos/mis-equipos';
+import { PerfilEquipoPage } from '../pages/perfil-equipo/perfil-equipo';
+
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -25,11 +29,14 @@ import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
     RegistroPage,
     ChatPage,
     MenuPage,
-    CrearEquipoPage
+    CrearEquipoPage,
+    MisEquiposPage,
+    PerfilEquipoPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -40,16 +47,18 @@ import { CrearEquipoPage } from '../pages/crear-equipo/crear-equipo';
     RegistroPage,
     ChatPage,
     MenuPage,
-    CrearEquipoPage
+    CrearEquipoPage,
+    MisEquiposPage,
+    PerfilEquipoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     ToastProvider,
     HandlerProvider,
     BifrostProvider,
     HummerProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
