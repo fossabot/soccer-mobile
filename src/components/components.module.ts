@@ -6,15 +6,17 @@ import { PartidosComponent } from './partidos/partidos';
 import { NominaComponent } from './nomina/nomina';
 
 @NgModule({
-	declarations: [IvlistComponent,
+  declarations: [
+    IvlistComponent,
     PartidosComponent,
     NominaComponent],
-	imports: [
+  imports: [
     CommonModule,
     IonicModule
   ],
-	exports: [IvlistComponent,
+  exports: [
+    IvlistComponent,
     PartidosComponent,
     NominaComponent]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

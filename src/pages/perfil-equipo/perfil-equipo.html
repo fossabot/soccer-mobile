@@ -10,7 +10,7 @@
   <ion-grid>
     <!-- Header -->
     <ion-row>
-      <ion-col>
+      <ion-col no-padding>
         <ion-item no-padding>
           <ion-thumbnail item-start>
             <img src="{{equipo.foto}}" />
@@ -24,10 +24,18 @@
         </ion-item>
       </ion-col>
     </ion-row>
-
+    <ion-row>
+      <ion-col>
+        <button ion-button color="secondary" full>ENVIAR SOLICITUD</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="danger" full>DESAFIAR</button>
+      </ion-col>
+    </ion-row>
+    <br>
     <!-- Descripción -->
     <ion-row>
-      <ion-col no-padding>
+      <ion-col>
         <ion-card-header no-padding>
           <b>DESCRIPCIÓN</b>
         </ion-card-header>
@@ -38,63 +46,7 @@
       </ion-col>
     </ion-row>
 
-    <!-- Nomina-->
-    <ion-row>
-      <ion-col no-padding>
-        <ion-card-header no-padding>
-          <b>NOMINA</b>
-        </ion-card-header>
-        <hr>
-      </ion-col>
-    </ion-row>
-    <!-- Lider -->
-
-    <ion-row>
-      <ion-col no-padding>
-        <ion-card no-padding>
-
-          <ion-item class="white-item">
-            <ion-avatar item-start>
-              <img src="/assets/imgs/player.png">
-            </ion-avatar>
-            <h2>Pedro</h2>
-            <p>Lider - Central</p>
-          </ion-item>
-
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col no-padding>
-        <ion-card>
-          <img src="/assets/imgs/player.png" />
-          <ion-card-content>
-            <h2>Pedro</h2>
-            <p>Lider - Central</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-      <ion-col no-padding>
-        <ion-card>
-          <img src="/assets/imgs/player.png" />
-          <ion-card-content>
-            <h2>Pedro</h2>
-            <p>Lider - Central</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <button ion-button clear color='dark'>
-          VER MÁS
-        </button>
-      </ion-col>
-    </ion-row>
+    <nomina [idEquipo]='equipo._id'></nomina>
 
 
 

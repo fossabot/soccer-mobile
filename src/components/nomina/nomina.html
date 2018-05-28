@@ -1,4 +1,49 @@
-<!-- Generated template for the NominaComponent component -->
-<div>
-  {{text}}
-</div>
+<!-- Nomina-->
+<ion-row>
+  <ion-col no-padding>
+    <ion-card-header no-padding>
+      <b>NOMINA</b>
+    </ion-card-header>
+    <hr>
+  </ion-col>
+</ion-row>
+<!-- Lider -->
+<ion-row>
+  <ion-col no-padding>
+    <ion-card no-padding>
+      <ion-item class="white-item">
+        <ion-avatar item-start>
+          <img src="/assets/imgs/player.png">
+        </ion-avatar>
+        <h2>{{lider.nombre}}</h2>
+        <p>Lider - Central</p>
+      </ion-item>
+
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col no-padding col-6 *ngFor='let jugador of integrantes'>
+    <ion-card (click)='gotoJugador(jugador._id,$event)' *ngIf='jugador._id !== lider._id'>
+      <img src="{{jugador.urlFoto||'/assets/imgs/player.png'}}" />
+      <ion-card-content>
+        <h2>{{jugador.nombre}}</h2>
+        <p>Central</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col>
+    <!--<button ion-button clear color='dark'>
+      VER MÁS
+    </button>-->
+  </ion-col>
+  <ion-col>
+    <button (click)='openInvitarModal()' ion-button color='dark'>
+      INVITAR JUGADOR
+    </button>
+  </ion-col>
+</ion-row>

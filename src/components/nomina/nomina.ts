@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BifrostProvider } from '../../providers/bifrost/bifrost';
+import { HandlerProvider } from '../../providers/handler/handler';
 
 /**
  * Generated class for the NominaComponent component.
@@ -10,13 +12,39 @@ import { Component } from '@angular/core';
   selector: 'nomina',
   templateUrl: 'nomina.html'
 })
-export class NominaComponent {
+export class NominaComponent implements OnInit {
+  @Input() idEquipo: string;
 
-  text: string;
+  public integrantes: Array<any> = [];
+  public lider: Object = {};
+  constructor(
+    public bifrost: BifrostProvider,
+    public handler: HandlerProvider
+  ) { }
 
-  constructor() {
-    console.log('Hello NominaComponent Component');
-    this.text = 'Hello World';
+  ngOnInit() {
+    this.getJugadores();
   }
+
+  getJugadores() {
+    this.bifrost
+      .getPopulate('equipo', this.idEquipo, ['integrantes', 'lider'])
+      .then(response => {
+        this.integrantes = response.integrantes;
+        console.log(this.integrantes);
+        this.lider = response.lider;
+      })
+      .catch(error => this.handler.there(error))
+  }
+
+  gotoJugador(idJugador:string,event) {
+    //Va al perfil del jugador
+
+  }
+
+  openInvitarModal($event){
+
+  }
+
 
 }

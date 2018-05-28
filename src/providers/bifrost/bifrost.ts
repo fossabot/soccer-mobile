@@ -45,6 +45,14 @@ export class BifrostProvider {
     return this.main('post', `${this.restUrl}/${api}`, body)
   }
 
+  get(api: string, id: string = ''): Promise<any> {
+    return this.main('get', `${this.restUrl}/${api}/${id}`);
+  }
+
+  getPopulate(api: string, id: string, populate: Array<string>): Promise<any> {
+    return this.main('post', `${this.restUrl}/${api}/populate/${id}`, {populate});
+  }
+
   put() {
 
   }
